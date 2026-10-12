@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+.fiche {
+  max-width: 320px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 25px;
+  background: #fff0fb;
+  border: 2px solid white;
+  box-shadow: 0 8px 20px #fcb3ec;
+  font-family: 'Quicksand', sans-serif;
+  color: #7a3b69;
+  text-align: center;
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.badge-info { background: #d68cff; }
+.badge-elec { background: #ff8fb1; }

@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+/* ---------- Page: centering + animated ombre ---------- */
+html { height: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #ffd6f3, #e8d4ff, #d4e6ff, #ffe0ec);
+  background-size: 300% 300%;
+  animation: ombre 16s ease infinite;
+  overflow: hidden;
+}
+
+@keyframes ombre {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------- Drifting clouds ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  filter: blur(10px);
+  background:
+    radial-gradient(ellipse 110px 34px at 15% 20%, rgba(255,255,255,.75), transparent 70%),
+    radial-gradient(ellipse 70px 30px at 20% 16%, rgba(255,255,255,.75), transparent 70%),
+    radial-gradient(ellipse 70px 26px at 10% 23%, rgba(255,255,255,.7), transparent 70%),
+    radial-gradient(ellipse 130px 38px at 62% 72%, rgba(255,255,255,.65), transparent 70%),
+    radial-gradient(ellipse 80px 32px at 68% 68%, rgba(255,255,255,.65), transparent 70%),
+    radial-gradient(ellipse 100px 30px at 88% 42%, rgba(255,255,255,.6), transparent 70%);
+  background-size: 900px 100%;
+  background-repeat: repeat-x;
+  animation: clouds 70s linear infinite;
+}
+
+@keyframes clouds {
+  from { background-position-x: 0; }
+  to   { background-position-x: 900px; }
+}
+
+/* ---------- Twinkling, floating stars ---------- */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -1000px;
+  z-index: -1;
+    background-image:
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%23fff' transform='translate(50 50) scale(3)' d='M0 -1 Q.1 -.1 1 0 Q.1 .1 0 1 Q-.1 .1 -1 0 Q-.1 -.1 0 -1Z'/></svg>"),
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%23fff' transform='translate(50 50) scale(2.5)' d='M0 -1 Q.1 -.1 1 0 Q.1 .1 0 1 Q-.1 .1 -1 0 Q-.1 -.1 0 -1Z'/></svg>"),
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%23ffe27a' transform='translate(50 50) scale(3)' d='M0 -1 Q.1 -.1 1 0 Q.1 .1 0 1 Q-.1 .1 -1 0 Q-.1 -.1 0 -1Z'/></svg>"),
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%23ff9de2' transform='translate(50 50) scale(3)' d='M0 -1 Q.1 -.1 1 0 Q.1 .1 0 1 Q-.1 .1 -1 0 Q-.1 -.1 0 -1Z'/></svg>"),
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%23fff' transform='translate(50 50) scale(2)' d='M0 -1 Q.1 -.1 1 0 Q.1 .1 0 1 Q-.1 .1 -1 0 Q-.1 -.1 0 -1Z'/></svg>");
+  background-size: 200px 200px, 125px 125px, 250px 250px, 100px 100px, 500px 500px;
+  background-position: 20px 40px, 90px 10px, 150px 120px, 60px 50px, 200px 60px;
+  animation: drift 120s linear infinite, twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-1000px); }
+}
+
+@keyframes twinkle {
+  from { opacity: .45; }
+  to   { opacity: 1; }
+}
+
+/* ---------- Card ---------- */
+.fiche {
+  width: 100%;
+  max-width: 320px;
+  margin: 0;
+  padding: 28px 22px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #fff0fb 0%, #ffdff8 50%, #f3e3ff 100%);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 30px rgba(252, 151, 230, 0.35),
+              inset 0 0 20px rgba(255, 255, 255, 0.6);
+  font-family: 'Quicksand', sans-serif;
+  color: #7a3b69;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fiche:hover {
+  transform: translateY(-6px) rotate(-0.5deg);
+  box-shadow: 0 18px 40px rgba(252, 151, 230, 0.5),
+              inset 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.fiche::before {
+  content: "♡";
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 18px;
+  color: #fc97e6;
+}
+
+.fiche::after {
+  content: "♡";
+  position: absolute;
+  bottom: 12px;
+  left: 18px;
+  font-size: 16px;
+  color: #f7a8e8;
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.badge-info { background: linear-gradient(135deg, #ff9de2, #d68cff); }
+.badge-elec { background: linear-gradient(135deg, #ffb86b, #ff8fb1); }
+
+/* ---------- Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  body, body::before, body::after { animation: none; }
+}

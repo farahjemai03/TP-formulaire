@@ -52,6 +52,8 @@ if ($moyenne >= 10) {
     <span class="badge <?php echo $classeBadge; ?>">
       <?php echo $labelFiliere; ?>
     </span>
+    <p>Année : <?php echo $anneeEtude; ?>ème année</p>
+    <p>Moyenne : <?php echo $moyenne; ?>/20</p>
     <p><?php echo $statut; ?></p>
     <?php if ($estBoursier) { ?>
       <p>🎓 Boursière</p>
@@ -59,4 +61,3 @@ if ($moyenne >= 10) {
   </div>
 </body>
 </html>
-

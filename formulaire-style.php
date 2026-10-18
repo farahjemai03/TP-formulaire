@@ -40,9 +40,13 @@ switch ($filiere) {
 }
 
 if ($moyenne >= 10) {
-    $statut = "Admise";
+    $statut       = "Admise";
+    $classeStatut = "statut-ok";
+    $iconeStatut  = "✓";
 } else {
-    $statut = "Non admise";
+    $statut       = "Non admise";
+    $classeStatut = "statut-ko";
+    $iconeStatut  = "✕";
 }
 
 
@@ -63,13 +67,38 @@ if ($moyenne >= 15) {
  
   <div class="fiche">
     <h1><?php echo $nom; ?></h1>
-    <span class="badge <?php echo $classeBadge; ?>">
-      <?php echo $labelFiliere; ?>
+
+<div class="meta">
+  <span class="badge <?php echo $classeBadge; ?>">
+    <?php echo $labelFiliere; ?>
+  </span>
+  <span class="badge badge-annee">
+    <?php echo $anneeEtude; ?>ème année
+  </span>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <span class="stat-label">Moyenne</span>
+    <span class="stat-value">
+      <?php echo $moyenne; ?><small>/20</small>
     </span>
-    <p>Année : <?php echo $anneeEtude; ?>ème année</p>
-    <p>Moyenne : <?php echo $moyenne; ?>/20</p>
-    <p>Mention : <?php echo $mention; ?></p>
-    <p><?php echo $statut; ?></p>
+  </div>
+  <div class="stat">
+    <span class="stat-label">Mention</span>
+    <span class="stat-value stat-mention">
+      <?php echo $mention; ?>
+    </span>
+  </div>
+</div>
+
+<div class="statut <?php echo $classeStatut; ?>">
+  <span class="statut-icone">
+    <?php echo $iconeStatut; ?>
+  </span>
+  <?php echo $statut; ?>
+</div>
+
     <?php if ($estBoursier) { ?>
       <p>🎓 Boursière</p>
     <?php } ?>

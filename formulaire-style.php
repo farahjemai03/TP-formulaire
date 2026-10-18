@@ -19,7 +19,7 @@ $filiere = "Info";
 $moyenne = 13.5;
 // float : moyenne générale
  
-$estBoursier = true;
+$estBoursier = false;
 // bool : bénéficie d'une bourse
  
 $anneeEtude = 2;
@@ -45,6 +45,20 @@ if ($moyenne >= 10) {
     $statut = "Non admise";
 }
 
+
+if ($moyenne >= 15) {
+    $mention = "Excellent";
+} elseif ($moyenne >= 13) {
+    $mention = "Très bien";
+} elseif ($moyenne >= 12) {
+    $mention = "Bien";
+} elseif ($moyenne >= 10) {
+    $mention = "Assez bien";
+} else {
+    $mention = "Insuffisant";
+}
+
+
 ?>
  
   <div class="fiche">
@@ -54,6 +68,7 @@ if ($moyenne >= 10) {
     </span>
     <p>Année : <?php echo $anneeEtude; ?>ème année</p>
     <p>Moyenne : <?php echo $moyenne; ?>/20</p>
+    <p>Mention : <?php echo $mention; ?></p>
     <p><?php echo $statut; ?></p>
     <?php if ($estBoursier) { ?>
       <p>🎓 Boursière</p>
